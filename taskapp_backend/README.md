@@ -195,14 +195,18 @@ SQLAlchemy automatically maps models to PostgreSQL tables.
 Create a `.env` file (not committed):
 
 ```env
-DATABASE_URL=postgresql://taskapp_user:taskapp_password@localhost:5432/taskapp
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_NAME=taskapp
+DATABASE_USER=taskapp_user
+DATABASE_PASSWORD=taskapp_password
 SECRET_KEY=change-this-in-production
 PORT=5000
 ```
 
 **Important Notes**
 - `SECRET_KEY` must be changed in production
-- `DATABASE_URL` should point to PostgreSQL
+- Database variables should point to PostgreSQL
 - Defaults are provided for local development
 
 ## Local Development Setup
@@ -280,4 +284,3 @@ Production systems should add:
 - API versioning
 - Dockerized deployment
 - CI/CD integration
-

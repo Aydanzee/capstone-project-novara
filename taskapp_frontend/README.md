@@ -118,7 +118,7 @@ Backend REST API
 
 1. User accesses the dashboard
 2. Frontend fetches tasks: `GET /api/tasks`
-3Tommy. Tasks are grouped by status:
+3. Tasks are grouped by status:
    - todo
    - in_progress
    - done
@@ -263,4 +263,3 @@ TypeScript is configured in strict mode to catch issues early.
 - End-to-end testing (Playwright / Cypress)
 - Dockerized frontend build
 - CI/CD pipeline integration
-

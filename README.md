@@ -28,6 +28,40 @@ Upon completion, you will demonstrate mastery of:
 
 ---
 
+## **LOCAL CONTAINER QUICKSTART**
+
+Use Docker Compose to validate the application before moving to Kubernetes or AWS:
+
+```bash
+docker compose up --build
+```
+
+Local endpoints:
+- Frontend: `http://localhost:8080`
+- Backend health check: `http://localhost:5000/api/health`
+- PostgreSQL: `localhost:5432`
+
+The Compose stack builds the React frontend, runs the Flask backend with Gunicorn, starts PostgreSQL, initializes the database tables, and seeds demo users:
+
+| Username | Password |
+|----------|----------|
+| admin    | admin123 |
+| user     | user123  |
+
+Stop the stack with:
+
+```bash
+docker compose down
+```
+
+Remove the local database volume when you need a clean reset:
+
+```bash
+docker compose down --volumes
+```
+
+---
+
 ## **SYSTEM REQUIREMENTS**
 
 Your final infrastructure must satisfy the following architectural requirements:
@@ -267,4 +301,3 @@ Before final submission, ensure:
 **Remember**: The goal is not just to make it work, but to make it production-ready, secure, and maintainable. You are building the foundation that a real company would use to serve real customers.
 
 **Good luck!**
-
