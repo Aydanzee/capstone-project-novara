@@ -1,0 +1,16 @@
+aws_region   = "us-east-1"
+project_name = "capstone-project-novara"
+environment  = "dev"
+
+# Replace with your real registered domain after purchase/delegation planning.
+domain_name = "example.com"
+
+# Replace with the final cluster DNS name. Kops commonly uses a DNS name here.
+kops_cluster_name = "taskapp.example.com"
+
+# Optional. If left null, Terraform generates globally unique names using account ID and region.
+terraform_state_bucket_name = null
+kops_state_bucket_name      = null
+
+# Optional. Add your IAM user/role ARN when you want a role that can be assumed for Kops operations.
+kops_operator_principal_arns = []

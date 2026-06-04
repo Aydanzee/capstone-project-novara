@@ -127,6 +127,68 @@ For production, replace the local image tags in `k8s/base/backend-deployment.yam
 
 ---
 
+## **TERRAFORM AWS FOUNDATION**
+
+The Terraform foundation lives in `terraform/` and is organized for review before any AWS resources are created:
+
+```text
+terraform/
+├── backend.tf
+├── providers.tf
+├── variables.tf
+├── outputs.tf
+├── main.tf
+└── modules/
+    ├── vpc/
+    ├── iam/
+    └── dns/
+```
+
+The foundation defines:
+
+- VPC across 3 Availability Zones
+- 3 public subnets for NAT gateways and load balancers
+- 3 private subnets for Kubernetes nodes
+- Internet Gateway and route tables
+- 3 NAT gateways, one per AZ
+- S3 bucket for Kops state
+- S3 bucket and DynamoDB table for Terraform remote state and locking
+- Optional Route53 hosted zone for your domain
+- IAM policy and optional assumable role for Kops cluster operations
+
+Review and plan before creating anything:
+
+```bash
+cd terraform
+cp terraform.tfvars.example terraform.tfvars
+```
+
+Edit `terraform.tfvars` with your domain and any final bucket names. Do not commit `terraform.tfvars`.
+
+Initialize and review the plan:
+
+```bash
+terraform init
+terraform fmt -recursive
+terraform validate
+terraform plan
+```
+
+Only run `terraform apply` after reviewing cost impact and confirming your AWS budget alert is active.
+
+Remote state bootstrap flow:
+
+1. Run the first apply using local Terraform state to create the Terraform state S3 bucket and DynamoDB lock table.
+2. Edit `terraform/backend.tf` with the created bucket/table names.
+3. Run `terraform init -migrate-state`.
+4. Continue future plans/applies with the S3 backend enabled.
+
+Do not commit AWS credentials, Terraform state files, kubeconfigs, private keys, or real secret values.
+
+See `docs/cost-analysis.md` for temporary capstone cost notes and budget-alert guidance.
+
+---
+
 ## **SYSTEM REQUIREMENTS**
 
 Your final infrastructure must satisfy the following architectural requirements:
