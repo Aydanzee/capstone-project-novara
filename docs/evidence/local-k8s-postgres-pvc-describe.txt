@@ -1,0 +1,18 @@
+Name:          postgres-data
+Namespace:     taskapp
+StorageClass:  standard
+Status:        Bound
+Volume:        pvc-c59ea861-5de3-4ae1-a36e-3967e51c8a1a
+Labels:        app.kubernetes.io/name=postgres
+               app.kubernetes.io/part-of=taskapp
+Annotations:   pv.kubernetes.io/bind-completed: yes
+               pv.kubernetes.io/bound-by-controller: yes
+               volume.beta.kubernetes.io/storage-provisioner: rancher.io/local-path
+               volume.kubernetes.io/selected-node: desktop-control-plane
+               volume.kubernetes.io/storage-provisioner: rancher.io/local-path
+Finalizers:    [kubernetes.io/pvc-protection]
+Capacity:      5Gi
+Access Modes:  RWO
+VolumeMode:    Filesystem
+Used By:       postgres-7fbb86894-7c9hv
+Events:        <none>

@@ -1,0 +1,21 @@
+NAME                            READY   STATUS    RESTARTS   AGE
+pod/backend-7b8c58c478-84zw9    1/1     Running   0          27m
+pod/backend-7b8c58c478-l8dsf    1/1     Running   0          27m
+pod/frontend-66c464565b-2rwzh   1/1     Running   0          123m
+pod/frontend-66c464565b-dftnm   1/1     Running   0          123m
+pod/postgres-7fbb86894-7c9hv    1/1     Running   0          28m
+
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
+service/backend    ClusterIP   10.96.36.115    <none>        5000/TCP   123m
+service/frontend   ClusterIP   10.96.254.234   <none>        80/TCP     123m
+service/postgres   ClusterIP   10.96.28.55     <none>        5432/TCP   123m
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/backend    2/2     2            2           123m
+deployment.apps/frontend   2/2     2            2           123m
+deployment.apps/postgres   1/1     1            1           123m
+
+NAME                                  DESIRED   CURRENT   READY   AGE
+replicaset.apps/backend-7b8c58c478    2         2         2       123m
+replicaset.apps/frontend-66c464565b   2         2         2       123m
+replicaset.apps/postgres-7fbb86894    1         1         1       123m

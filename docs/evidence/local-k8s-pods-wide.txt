@@ -1,0 +1,6 @@
+NAME                        READY   STATUS    RESTARTS   AGE    IP            NODE                    NOMINATED NODE   READINESS GATES
+backend-7b8c58c478-84zw9    1/1     Running   0          27m    10.244.0.12   desktop-control-plane   <none>           <none>
+backend-7b8c58c478-l8dsf    1/1     Running   0          27m    10.244.0.13   desktop-control-plane   <none>           <none>
+frontend-66c464565b-2rwzh   1/1     Running   0          123m   10.244.0.5    desktop-control-plane   <none>           <none>
+frontend-66c464565b-dftnm   1/1     Running   0          123m   10.244.0.6    desktop-control-plane   <none>           <none>
+postgres-7fbb86894-7c9hv    1/1     Running   0          28m    10.244.0.11   desktop-control-plane   <none>           <none>

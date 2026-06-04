@@ -62,6 +62,71 @@ docker compose down --volumes
 
 ---
 
+## **KUBERNETES LOCAL VALIDATION**
+
+The base Kubernetes manifests live in `k8s/base/` and mirror the Docker Compose stack:
+
+- Namespace: `taskapp`
+- Frontend: 2 replicas on port `80`
+- Backend: 2 replicas on port `5000`
+- PostgreSQL: PVC-backed deployment with a `ClusterIP` service
+- Ingress: `/` routes to frontend, `/api` routes to backend
+
+The local placeholder images are:
+
+- `taskapp-frontend:local`
+- `taskapp-backend:local`
+
+Build the local images before applying the manifests:
+
+```bash
+docker build -t taskapp-backend:local ./taskapp_backend
+docker build -t taskapp-frontend:local ./taskapp_frontend
+```
+
+If you are using Minikube, load the local images into the cluster:
+
+```bash
+minikube image load taskapp-backend:local
+minikube image load taskapp-frontend:local
+```
+
+Apply the base manifests:
+
+```bash
+kubectl apply -k k8s/base
+```
+
+Check rollout status:
+
+```bash
+kubectl -n taskapp rollout status deployment/postgres
+kubectl -n taskapp rollout status deployment/backend
+kubectl -n taskapp rollout status deployment/frontend
+```
+
+Inspect pods and services:
+
+```bash
+kubectl -n taskapp get pods,svc,ingress
+```
+
+Validate health checks through port-forwarding. Run each `kubectl port-forward` command in its own terminal:
+
+```bash
+kubectl -n taskapp port-forward svc/backend 5001:5000
+curl http://localhost:5001/api/health
+```
+
+```bash
+kubectl -n taskapp port-forward svc/frontend 8080:80
+curl http://localhost:8080/health
+```
+
+For production, replace the local image tags in `k8s/base/backend-deployment.yaml` and `k8s/base/frontend-deployment.yaml` with versioned images from your container registry. Do not use `latest`.
+
+---
+
 ## **SYSTEM REQUIREMENTS**
 
 Your final infrastructure must satisfy the following architectural requirements:

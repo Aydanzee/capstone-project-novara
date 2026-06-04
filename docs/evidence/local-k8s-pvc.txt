@@ -1,0 +1,2 @@
+NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+postgres-data   Bound    pvc-c59ea861-5de3-4ae1-a36e-3967e51c8a1a   5Gi        RWO            standard       <unset>                 123m
