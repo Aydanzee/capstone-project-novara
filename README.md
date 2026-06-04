@@ -38,7 +38,7 @@ docker compose up --build
 
 Local endpoints:
 - Frontend: `http://localhost:8080`
-- Backend health check: `http://localhost:5000/api/health`
+- Backend health check: `http://localhost:5001/api/health`
 - PostgreSQL: `localhost:5432`
 
 The Compose stack builds the React frontend, runs the Flask backend with Gunicorn, starts PostgreSQL, initializes the database tables, and seeds demo users:
