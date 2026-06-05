@@ -1,0 +1,1 @@
+027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-frontend:ebba77f

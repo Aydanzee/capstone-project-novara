@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+images:
+  - name: taskapp-backend
+    newName: 027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-backend
+    newTag: ebba77f
+  - name: taskapp-frontend
+    newName: 027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-frontend
+    newTag: ebba77f
