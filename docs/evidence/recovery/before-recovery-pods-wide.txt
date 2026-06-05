@@ -1,0 +1,6 @@
+NAME                        READY   STATUS    RESTARTS   AGE   IP             NODE                  NOMINATED NODE   READINESS GATES
+backend-6dbfc4f546-7b8d6    1/1     Running   0          34m   100.96.4.159   i-04c684324593733fe   <none>           <none>
+backend-6dbfc4f546-9f4xm    1/1     Running   0          34m   100.96.5.150   i-0b8243f3312077173   <none>           <none>
+frontend-5fbb454f96-l8rbt   1/1     Running   0          34m   100.96.4.215   i-04c684324593733fe   <none>           <none>
+frontend-5fbb454f96-rmtzb   1/1     Running   0          34m   100.96.3.66    i-007cd1b79f0f3c0e8   <none>           <none>
+postgres-66b5985587-hl95t   1/1     Running   0          34m   100.96.3.201   i-007cd1b79f0f3c0e8   <none>           <none>

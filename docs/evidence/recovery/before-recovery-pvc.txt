@@ -1,0 +1,2 @@
+NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS    VOLUMEATTRIBUTESCLASS   AGE
+postgres-data   Bound    pvc-6d66faea-4cfc-4c72-9278-3e9cfa519287   5Gi        RWO            kops-csi-1-21   <unset>                 34m
