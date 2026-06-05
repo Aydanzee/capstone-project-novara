@@ -161,6 +161,12 @@ Operational evidence is stored in:
 docs/evidence/
 ```
 
+The operations runbook is stored in:
+
+```text
+docs/runbook.md
+```
+
 Evidence includes:
 
 - Kops cluster validation
