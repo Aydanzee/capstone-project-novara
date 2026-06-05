@@ -11,3 +11,6 @@ images:
   - name: taskapp-frontend
     newName: 027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-frontend
     newTag: ebba77f
+
+patches:
+  - path: ingress-patch.yaml

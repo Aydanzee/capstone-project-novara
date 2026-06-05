@@ -1,0 +1,8 @@
+NAME                                      READY   SECRET        AGE
+certificate.cert-manager.io/taskapp-tls   True    taskapp-tls   3m33s
+
+NAME                                               APPROVED   DENIED   READY   ISSUER             REQUESTER                                         AGE
+certificaterequest.cert-manager.io/taskapp-tls-1   True                True    letsencrypt-prod   system:serviceaccount:cert-manager:cert-manager   3m33s
+
+NAME                                                 STATE   AGE
+order.acme.cert-manager.io/taskapp-tls-1-622882768   valid   3m33s

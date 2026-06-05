@@ -1,0 +1,2 @@
+NAME                       TYPE           CLUSTER-IP       EXTERNAL-IP                                                                     PORT(S)                      AGE
+ingress-nginx-controller   LoadBalancer   100.65.243.157   a2eb9dd4fc9994bac8cfdf782d6701a0-191be8a0c064f6db.elb.us-east-1.amazonaws.com   80:32074/TCP,443:30813/TCP   15m
