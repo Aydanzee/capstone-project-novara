@@ -1,0 +1,7 @@
+NAME                  STATUS   ROLES           AGE   VERSION   INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
+i-007cd1b79f0f3c0e8   Ready    node            10m   v1.35.5   10.20.11.141   <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4
+i-04c684324593733fe   Ready    node            10m   v1.35.5   10.20.10.124   <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4
+i-07a9bfed9bd47677b   Ready    control-plane   12m   v1.35.5   10.20.12.208   <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4
+i-0b8243f3312077173   Ready    node            10m   v1.35.5   10.20.12.117   <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4
+i-0c17db04c0d3b8f73   Ready    control-plane   10m   v1.35.5   10.20.10.13    <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4
+i-0d57c1b09187e0178   Ready    control-plane   11m   v1.35.5   10.20.11.145   <none>        Ubuntu 24.04.4 LTS   6.17.0-1007-aws   containerd://2.2.4

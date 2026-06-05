@@ -1,0 +1,13 @@
+-----------------------------------------------------------------------------------------------------------------
+|                                               DescribeInstances                                               |
++------------+----------------------------------------------------------+---------------+----------+------------+
+|     AZ     |                          Name                            |   PrivateIP   |  State   |   Type     |
++------------+----------------------------------------------------------+---------------+----------+------------+
+|  us-east-1b|  nodes-us-east-1b.k8s.axiomdlabs.online                  |  10.20.11.141 |  running |  t3.small  |
+|  us-east-1c|  bastions.k8s.axiomdlabs.online                          |  10.20.12.234 |  running |  t3.micro  |
+|  us-east-1c|  nodes-us-east-1c.k8s.axiomdlabs.online                  |  10.20.12.117 |  running |  t3.small  |
+|  us-east-1c|  control-plane-us-east-1c.masters.k8s.axiomdlabs.online  |  10.20.12.208 |  running |  t3.small  |
+|  us-east-1b|  control-plane-us-east-1b.masters.k8s.axiomdlabs.online  |  10.20.11.145 |  running |  t3.small  |
+|  us-east-1a|  control-plane-us-east-1a.masters.k8s.axiomdlabs.online  |  10.20.10.13  |  running |  t3.small  |
+|  us-east-1a|  nodes-us-east-1a.k8s.axiomdlabs.online                  |  10.20.10.124 |  running |  t3.small  |
++------------+----------------------------------------------------------+---------------+----------+------------+

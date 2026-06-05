@@ -1,0 +1,22 @@
+Validating cluster k8s.axiomdlabs.online
+
+INSTANCE GROUPS
+NAME				ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+bastions			Bastion		t3.micro	1	1	us-east-1a,us-east-1b,us-east-1c
+control-plane-us-east-1a	ControlPlane	t3.small	1	1	us-east-1a
+control-plane-us-east-1b	ControlPlane	t3.small	1	1	us-east-1b
+control-plane-us-east-1c	ControlPlane	t3.small	1	1	us-east-1c
+nodes-us-east-1a		Node		t3.small	1	1	us-east-1a
+nodes-us-east-1b		Node		t3.small	1	1	us-east-1b
+nodes-us-east-1c		Node		t3.small	1	1	us-east-1c
+
+NODE STATUS
+NAME			ROLE		READY
+i-007cd1b79f0f3c0e8	node		True
+i-04c684324593733fe	node		True
+i-07a9bfed9bd47677b	control-plane	True
+i-0b8243f3312077173	node		True
+i-0c17db04c0d3b8f73	control-plane	True
+i-0d57c1b09187e0178	control-plane	True
+
+Your cluster k8s.axiomdlabs.online is ready

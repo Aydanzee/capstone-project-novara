@@ -1,0 +1,44 @@
+NAMESPACE     NAME                                            READY   STATUS    RESTARTS      AGE
+kube-system   aws-cloud-controller-manager-2nfr7              1/1     Running   0             10m
+kube-system   aws-cloud-controller-manager-dzhnq              1/1     Running   0             11m
+kube-system   aws-cloud-controller-manager-lgjhd              1/1     Running   0             11m
+kube-system   aws-node-termination-handler-79bc6756b8-sm2fb   1/1     Running   0             11m
+kube-system   aws-node-termination-handler-79bc6756b8-vl7kp   1/1     Running   0             11m
+kube-system   cilium-686jt                                    1/1     Running   0             10m
+kube-system   cilium-76n25                                    1/1     Running   0             10m
+kube-system   cilium-b44lq                                    1/1     Running   0             11m
+kube-system   cilium-fbknq                                    1/1     Running   0             10m
+kube-system   cilium-k6pxl                                    1/1     Running   0             10m
+kube-system   cilium-lf4j4                                    1/1     Running   0             11m
+kube-system   cilium-operator-5df6d87775-krtw6                1/1     Running   0             11m
+kube-system   cilium-operator-5df6d87775-z826j                1/1     Running   0             11m
+kube-system   coredns-autoscaler-7fb47b485-bnr5d              1/1     Running   0             11m
+kube-system   coredns-dd68b47db-7dznn                         1/1     Running   0             9m36s
+kube-system   coredns-dd68b47db-chs5t                         1/1     Running   0             11m
+kube-system   dns-controller-6dfc647f5f-tt4kq                 1/1     Running   0             11m
+kube-system   ebs-csi-controller-548cd68648-d8fsc             5/5     Running   0             11m
+kube-system   ebs-csi-controller-548cd68648-r72nm             5/5     Running   0             11m
+kube-system   ebs-csi-node-2l4pl                              3/3     Running   0             10m
+kube-system   ebs-csi-node-f6jlg                              3/3     Running   0             10m
+kube-system   ebs-csi-node-g4nt4                              3/3     Running   0             11m
+kube-system   ebs-csi-node-jl5pk                              3/3     Running   0             10m
+kube-system   ebs-csi-node-mpvf2                              3/3     Running   0             11m
+kube-system   ebs-csi-node-n7p7w                              3/3     Running   0             10m
+kube-system   etcd-manager-events-i-07a9bfed9bd47677b         1/1     Running   0             12m
+kube-system   etcd-manager-events-i-0c17db04c0d3b8f73         1/1     Running   0             10m
+kube-system   etcd-manager-events-i-0d57c1b09187e0178         1/1     Running   0             11m
+kube-system   etcd-manager-main-i-07a9bfed9bd47677b           1/1     Running   0             11m
+kube-system   etcd-manager-main-i-0c17db04c0d3b8f73           1/1     Running   0             10m
+kube-system   etcd-manager-main-i-0d57c1b09187e0178           1/1     Running   0             11m
+kube-system   kops-controller-2ljgq                           1/1     Running   0             10m
+kube-system   kops-controller-h92r5                           1/1     Running   0             11m
+kube-system   kops-controller-qbf82                           1/1     Running   0             11m
+kube-system   kube-apiserver-i-07a9bfed9bd47677b              2/2     Running   2 (12m ago)   12m
+kube-system   kube-apiserver-i-0c17db04c0d3b8f73              2/2     Running   2 (11m ago)   10m
+kube-system   kube-apiserver-i-0d57c1b09187e0178              2/2     Running   4 (12m ago)   11m
+kube-system   kube-controller-manager-i-07a9bfed9bd47677b     1/1     Running   4 (12m ago)   12m
+kube-system   kube-controller-manager-i-0c17db04c0d3b8f73     1/1     Running   3 (11m ago)   10m
+kube-system   kube-controller-manager-i-0d57c1b09187e0178     1/1     Running   5 (12m ago)   11m
+kube-system   kube-scheduler-i-07a9bfed9bd47677b              1/1     Running   4 (12m ago)   12m
+kube-system   kube-scheduler-i-0c17db04c0d3b8f73              1/1     Running   3 (11m ago)   10m
+kube-system   kube-scheduler-i-0d57c1b09187e0178              1/1     Running   5 (12m ago)   11m
