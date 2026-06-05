@@ -5,6 +5,9 @@ environment  = "dev"
 # Replace with your real registered domain after purchase/delegation planning.
 domain_name = "example.com"
 
+# Optional. Use this to preserve DNS records such as ACM validation CNAMEs.
+extra_dns_records = []
+
 # Replace with the final cluster DNS name. Kops commonly uses a DNS name here.
 kops_cluster_name = "taskapp.example.com"
 

@@ -22,6 +22,17 @@ variable "domain_name" {
   default     = ""
 }
 
+variable "extra_dns_records" {
+  description = "Additional Route53 records to create in the hosted zone, such as existing ACM validation CNAMEs."
+  type = list(object({
+    name    = string
+    type    = string
+    ttl     = number
+    records = list(string)
+  }))
+  default = []
+}
+
 variable "vpc_cidr" {
   description = "CIDR block for the TaskApp VPC."
   type        = string

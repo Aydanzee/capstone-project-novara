@@ -33,6 +33,8 @@ pnpm-debug.log*
 *.tfstate.*
 terraform.tfvars
 *.auto.tfvars
+tfplan
+*.tfplan
 crash.log
 crash.*.log
 override.tf

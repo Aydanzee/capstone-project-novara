@@ -165,6 +165,23 @@ cp terraform.tfvars.example terraform.tfvars
 
 Edit `terraform.tfvars` with your domain and any final bucket names. Do not commit `terraform.tfvars`.
 
+When migrating DNS from Cloudflare or another provider to Route53, preserve any existing ACM validation records before changing nameservers. Add them through `extra_dns_records`:
+
+```hcl
+extra_dns_records = [
+  {
+    name = "_31e08bbec4068a150854c18c8906a4d9.axiomdlabs.online"
+    type = "CNAME"
+    ttl  = 300
+    records = [
+      "_f10a4af759330e543187bcca7aeb4197.jkddzztszm.acm-validations.aws"
+    ]
+  }
+]
+```
+
+This keeps certificate validation intact while Route53 becomes authoritative for the domain.
+
 Initialize and review the plan:
 
 ```bash

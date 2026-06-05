@@ -44,6 +44,7 @@ module "dns" {
 
   domain_name        = var.domain_name
   create_hosted_zone = var.domain_name != ""
+  extra_records      = var.extra_dns_records
   tags               = local.common_tags
 }
 
