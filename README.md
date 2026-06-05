@@ -1,3 +1,200 @@
+# TaskApp DevOps Capstone: Production Kubernetes Deployment on AWS
+
+This repository contains my DevOps Engineering capstone implementation for deploying **TaskApp** as a production-style, cloud-native application on AWS.
+
+The project demonstrates end-to-end DevOps delivery: containerization, infrastructure provisioning, Kubernetes orchestration, DNS, HTTPS, persistent storage, deployment validation, and operational recovery evidence.
+
+Built and delivered by **Daniel Enwefah**, Founder of **Axiom Labs Limited** and creator of **TaxCalc.ng**.
+
+---
+
+## Live Deployment
+
+- **Frontend:** https://taskapp.axiomdlabs.online
+- **API Health Check:** https://api.axiomdlabs.online/api/health
+- **Repository:** https://github.com/Aydanzee/capstone-project-novara
+
+---
+
+## Executive Summary
+
+TaskApp was deployed on a highly available AWS Kubernetes environment using a DevOps workflow designed for reliability, security, repeatability, and operational visibility.
+
+The deployment includes:
+
+- A Dockerized Flask backend and React frontend
+- Local validation with Docker Compose
+- Kubernetes manifests with Kustomize base and AWS overlay
+- Terraform-managed AWS networking, DNS, IAM, and state resources
+- S3 remote state with DynamoDB state locking
+- A Kops-managed Kubernetes cluster across 3 AWS Availability Zones
+- Amazon ECR for versioned container images
+- Route53 DNS management
+- NGINX Ingress Controller for public traffic routing
+- cert-manager with Let's Encrypt TLS certificates
+- HTTPS enforcement with HTTP-to-HTTPS redirection
+- PostgreSQL persistence using an AWS EBS-backed Kubernetes PVC
+- Recovery evidence for backend and database pod restarts
+
+This was implemented as a full DevOps delivery path from local development to live cloud deployment.
+
+---
+
+## Architecture Overview
+
+```mermaid
+flowchart TD
+    user["User Browser"] -->|HTTPS| route53["Route53 DNS"]
+    route53 --> nlb["AWS Network Load Balancer"]
+    nlb --> ingress["NGINX Ingress Controller"]
+
+    ingress -->|taskapp.axiomdlabs.online| frontendSvc["Frontend Service"]
+    ingress -->|api.axiomdlabs.online and /api| backendSvc["Backend Service"]
+
+    frontendSvc --> frontendPods["React Frontend Pods x2"]
+    backendSvc --> backendPods["Flask Backend Pods x2"]
+
+    backendPods --> postgresSvc["PostgreSQL Service"]
+    postgresSvc --> postgresPod["PostgreSQL Pod"]
+    postgresPod --> pvc["EBS-backed PersistentVolumeClaim"]
+
+    subgraph aws["AWS us-east-1 Multi-AZ Foundation"]
+        cp["3 Control Plane Nodes"]
+        workers["3 Worker Nodes"]
+        bastion["Bastion Host"]
+        private["Private Kubernetes Subnets"]
+        public["Public Utility Subnets"]
+    end
+
+    ingress -. runs on .-> workers
+    backendPods -. scheduled on .-> workers
+    frontendPods -. scheduled on .-> workers
+    postgresPod -. scheduled on .-> workers
+    cp -. managed by .-> bastion
+    private -. contains .-> cp
+    private -. contains .-> workers
+    public -. exposes .-> nlb
+```
+
+### Infrastructure Summary
+
+| Layer | Implementation |
+|---|---|
+| Cloud Provider | AWS |
+| Infrastructure as Code | Terraform |
+| Kubernetes Provisioning | Kops |
+| Kubernetes Networking | Cilium |
+| Container Registry | Amazon ECR |
+| DNS | Route53 |
+| Ingress | NGINX Ingress Controller |
+| TLS / HTTPS | cert-manager + Let's Encrypt |
+| Database | PostgreSQL on Kubernetes |
+| Storage | AWS EBS-backed PersistentVolumeClaim |
+| State Backend | S3 + DynamoDB locking |
+| Cluster Topology | Multi-AZ, private node topology |
+
+### AWS and Kubernetes Design
+
+The Kubernetes cluster was provisioned using Kops across three AWS Availability Zones in `us-east-1`.
+
+Cluster design includes:
+
+- 3 control-plane nodes
+- 3 worker nodes
+- 1 bastion instance
+- Private subnets for Kubernetes nodes
+- Public utility subnets for load balancers and NAT gateways
+- Restricted Kubernetes API and SSH access
+- EBS CSI support for persistent storage
+- Cilium networking
+- NGINX Ingress Controller exposed through an AWS Load Balancer
+
+This architecture provides a production-style foundation for availability, resilience, and operational control.
+
+### Application Deployment
+
+The application is deployed using Kubernetes manifests and Kustomize.
+
+Base manifests are stored in:
+
+```text
+k8s/base/
+```
+
+AWS-specific deployment overlays are stored in:
+
+```text
+k8s/overlays/aws/
+```
+
+The AWS overlay replaces local images with Amazon ECR-hosted images:
+
+```text
+027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-backend:ebba77f
+027355625786.dkr.ecr.us-east-1.amazonaws.com/taskapp-frontend:ebba77f
+```
+
+This keeps the deployment traceable to a specific Git commit and avoids using mutable `latest` tags.
+
+### Security and Reliability Measures
+
+Implemented security and reliability controls include:
+
+- No committed AWS credentials, kubeconfigs, private keys, or Terraform state
+- `.gitignore` protection for sensitive and generated files
+- Terraform remote state stored in encrypted S3
+- DynamoDB locking for Terraform state consistency
+- Restricted Kubernetes API and SSH access
+- TLS certificates issued through Let's Encrypt
+- HTTP-to-HTTPS redirect enabled
+- HSTS enabled on HTTPS responses
+- Kubernetes readiness and liveness probes
+- Rolling updates for backend and frontend deployments
+- PostgreSQL persistent storage through Kubernetes PVC
+- Evidence captured for cluster, deployment, HTTPS, and recovery validation
+
+### Validation Evidence
+
+Operational evidence is stored in:
+
+```text
+docs/evidence/
+```
+
+Evidence includes:
+
+- Kops cluster validation
+- AWS EC2 instance distribution across Availability Zones
+- Auto Scaling Group status
+- Kubernetes node readiness
+- Kubernetes system pod health
+- TaskApp pod, service, PVC, and ingress status
+- ECR image references
+- HTTPS frontend response
+- API database health response
+- HTTP-to-HTTPS redirect validation
+- TLS certificate readiness
+- Backend restart recovery
+- PostgreSQL restart and PVC persistence validation
+
+### Key Results
+
+- The application is live over HTTPS.
+- DNS is managed through Route53.
+- TLS is issued and managed automatically by cert-manager.
+- The backend API confirms live database connectivity.
+- The database remains available after PostgreSQL pod restart.
+- Application workloads run on a real AWS Kops Kubernetes cluster.
+- Infrastructure provisioning and deployment steps are documented and reproducible.
+
+### Capstone Scope
+
+This repository was forked from the Novara cohort starter project. The core DevOps implementation added in this repository includes the cloud infrastructure, Kubernetes deployment, containerization, DNS, SSL, persistence, and operational evidence required to run the application in a production-style AWS environment.
+
+The goal was not only to make the application work, but to demonstrate how it can be deployed, secured, validated, and operated using real DevOps practices.
+
+---
+
 # 🎓 **CAPSTONE PROJECT: Cloud-Native TaskApp Deployment**
 ## **Production Infrastructure Challenge**
 
