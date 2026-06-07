@@ -58,6 +58,8 @@ kubectl -n taskapp get pvc
 curl -s https://api.axiomdlabs.online/api/health
 ```
 
+If these pre-check commands time out or fail, keep the output as attempted pre-check evidence only. Do not present failed pre-check output as successful failover validation; use `docs/evidence/kops-validate-cluster.txt` for the previously captured cluster-ready proof.
+
 ## Controlled Failover Method
 
 After approval only, terminate one selected EC2 instance:
