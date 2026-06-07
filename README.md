@@ -22,6 +22,10 @@ Built and delivered by **Daniel Enwefah**, Founder of **Axiom Labs Limited** and
 - [Failover Test Plan](docs/failover-test-plan.md)
 - [Validation Evidence](docs/evidence/)
 
+## CI / IaC Validation
+
+This repository includes a GitHub Actions workflow for validating Terraform, Kubernetes manifests, and Docker builds. The workflow does not deploy infrastructure or require AWS credentials. It is used to catch configuration errors before changes are applied manually.
+
 ---
 
 ## Executive Summary

@@ -33,6 +33,10 @@ kubectl config current-context
 kubectl config use-context k8s.axiomdlabs.online
 ```
 
+## CI Validation Scope
+
+GitHub Actions validates code only for this capstone: Terraform formatting/init/validation, Kubernetes manifest rendering, and Docker image builds. CI does not deploy infrastructure, does not require AWS credentials, and does not replace the manual controlled deployment and cleanup procedures in this runbook.
+
 ## Cluster Health Checks
 
 Validate the Kops cluster:
