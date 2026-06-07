@@ -18,11 +18,11 @@ export KOPS_STATE_STORE=s3://capstone-project-novara-dev-kops-state-027355625786
 export KOPS_CLUSTER_NAME=k8s.axiomdlabs.online
 ```
 
-Refresh AWS CLI credentials:
+Authenticate with AWS using your approved access method, then export short-lived credentials for the active shell. The local capstone profile used during validation was `ts-capstone`; replace it with the profile name assigned for your own environment.
 
 ```bash
-aws sso login --profile ts-capstone
-eval "$(aws configure export-credentials --profile ts-capstone --format env)"
+aws login --profile <profile-name> --region us-east-1
+eval "$(aws configure export-credentials --profile <profile-name> --format env)"
 aws sts get-caller-identity
 ```
 
@@ -115,6 +115,15 @@ kubectl -n ingress-nginx get svc ingress-nginx-controller -o jsonpath='{.status.
 
 ## Deployment Commands
 
+Before applying manifests to a fresh cluster, create the runtime secret outside Git:
+
+```bash
+kubectl -n taskapp create secret generic taskapp-secret \
+  --from-literal=DATABASE_PASSWORD='<replace-with-secure-password>' \
+  --from-literal=SECRET_KEY='<replace-with-secure-secret-key>' \
+  --dry-run=client -o yaml | kubectl apply -f -
+```
+
 Apply the AWS Kubernetes overlay:
 
 ```bash
@@ -162,6 +171,22 @@ kubectl -n taskapp delete pod "$POSTGRES_POD"
 kubectl -n taskapp rollout status deployment/postgres --timeout=5m
 kubectl -n taskapp get pvc
 curl -s https://api.axiomdlabs.online/api/health
+```
+
+## Database Backup Strategy
+
+The current capstone validates PostgreSQL persistence through an AWS EBS-backed Kubernetes PVC. For production, add automated backups instead of relying only on persistent volume recovery.
+
+Recommended production approach:
+
+- Scheduled `pg_dump` Kubernetes CronJob writing encrypted backups to S3.
+- EBS snapshots or AWS Backup policy for the PostgreSQL persistent volume.
+- Regular restore testing with documented retention.
+
+Documentation-only non-destructive example:
+
+```bash
+kubectl -n taskapp exec deploy/postgres -- pg_dump -U taskapp_user taskapp > taskapp-backup.sql
 ```
 
 ## Terraform Checks
@@ -216,10 +241,10 @@ Important: do not manually delete Terraform state buckets before confirming all 
 
 ## Troubleshooting
 
-If AWS CLI says credentials are expired:
+If AWS CLI says credentials are expired, re-authenticate with your approved AWS access method and export fresh credentials. For example, using the local capstone profile:
 
 ```bash
-aws sso login --profile ts-capstone
+aws login --profile ts-capstone --region us-east-1
 eval "$(aws configure export-credentials --profile ts-capstone --format env)"
 aws sts get-caller-identity
 ```

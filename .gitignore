@@ -26,6 +26,7 @@ pnpm-debug.log*
 
 # Docker and local runtime output
 *.log
+demo-output/
 
 # Terraform
 .terraform/

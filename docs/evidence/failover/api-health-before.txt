@@ -1,0 +1,1 @@
+{"database":"connected","status":"healthy","timestamp":"2026-06-07T08:53:51.706846"}

@@ -14,6 +14,14 @@ Built and delivered by **Daniel Enwefah**, Founder of **Axiom Labs Limited** and
 - **API Health Check:** https://api.axiomdlabs.online/api/health
 - **Repository:** https://github.com/Aydanzee/capstone-project-novara
 
+## Review Documents
+
+- [Architecture](docs/architecture.md)
+- [Operations Runbook](docs/runbook.md)
+- [Runtime Secrets](docs/secrets.md)
+- [Failover Test Plan](docs/failover-test-plan.md)
+- [Validation Evidence](docs/evidence/)
+
 ---
 
 ## Executive Summary

@@ -1,0 +1,57 @@
+
+Warning: Deprecated Parameter
+
+The parameter "dynamodb_table" is deprecated. Use parameter "use_lockfile" instead.
+Acquiring state lock. This may take a few moments...
+data.aws_availability_zones.available: Reading...
+data.aws_caller_identity.current: Reading...
+module.dns.aws_route53_zone.this[0]: Refreshing state... [id=Z07303783P1JF34L7H2PM]
+module.vpc.aws_vpc.this: Refreshing state... [id=vpc-064ae70015dab3d97]
+aws_dynamodb_table.terraform_locks: Refreshing state... [id=capstone-project-novara-terraform-locks]
+data.aws_caller_identity.current: Read complete after 0s [id=027355625786]
+aws_s3_bucket.kops_state: Refreshing state... [id=capstone-project-novara-dev-kops-state-027355625786-us-east-1]
+aws_s3_bucket.terraform_state: Refreshing state... [id=capstone-project-novara-dev-tfstate-027355625786-us-east-1]
+data.aws_availability_zones.available: Read complete after 1s [id=us-east-1]
+module.vpc.aws_eip.nat["us-east-1c"]: Refreshing state... [id=eipalloc-0fc5408592de1080a]
+module.vpc.aws_eip.nat["us-east-1b"]: Refreshing state... [id=eipalloc-0a4a4e63d62b3b7d5]
+module.vpc.aws_eip.nat["us-east-1a"]: Refreshing state... [id=eipalloc-0fdddf8c0d4f0a789]
+module.dns.aws_route53_record.extra["_31e08bbec4068a150854c18c8906a4d9.axiomdlabs.online-CNAME"]: Refreshing state... [id=Z07303783P1JF34L7H2PM__31e08bbec4068a150854c18c8906a4d9.axiomdlabs.online_CNAME]
+module.vpc.aws_internet_gateway.this: Refreshing state... [id=igw-000557e9b3341e631]
+module.vpc.aws_route_table.public: Refreshing state... [id=rtb-08e1f5c0ee70fb416]
+module.vpc.aws_subnet.public["us-east-1a"]: Refreshing state... [id=subnet-04770f6b7d12fdf06]
+module.vpc.aws_subnet.private["us-east-1c"]: Refreshing state... [id=subnet-0e81291f42124b49a]
+module.vpc.aws_subnet.public["us-east-1c"]: Refreshing state... [id=subnet-0f6cd50354f229c64]
+module.vpc.aws_subnet.private["us-east-1b"]: Refreshing state... [id=subnet-001a2af2336bcb8da]
+module.vpc.aws_subnet.private["us-east-1a"]: Refreshing state... [id=subnet-07dd98d50728314a1]
+module.vpc.aws_subnet.public["us-east-1b"]: Refreshing state... [id=subnet-036891e37bae84f79]
+module.vpc.aws_route_table.private["us-east-1c"]: Refreshing state... [id=rtb-0731271358199b27e]
+module.vpc.aws_route_table.private["us-east-1b"]: Refreshing state... [id=rtb-07b8dfa819e60bcd1]
+module.vpc.aws_route_table.private["us-east-1a"]: Refreshing state... [id=rtb-0d936a501de057845]
+module.vpc.aws_route.public_default: Refreshing state... [id=r-rtb-08e1f5c0ee70fb4161080289494]
+module.vpc.aws_nat_gateway.this["us-east-1a"]: Refreshing state... [id=nat-01938674158fad3ab]
+module.vpc.aws_nat_gateway.this["us-east-1b"]: Refreshing state... [id=nat-01e5f7743ffc72073]
+module.vpc.aws_route_table_association.public["us-east-1a"]: Refreshing state... [id=rtbassoc-06f03631ad5e2ca91]
+module.vpc.aws_nat_gateway.this["us-east-1c"]: Refreshing state... [id=nat-0af2df090c6bc9b95]
+module.vpc.aws_route_table_association.public["us-east-1c"]: Refreshing state... [id=rtbassoc-020507fe49c1c96bf]
+module.vpc.aws_route_table_association.public["us-east-1b"]: Refreshing state... [id=rtbassoc-09b9c4601e36557f6]
+module.vpc.aws_route_table_association.private["us-east-1c"]: Refreshing state... [id=rtbassoc-0656459acb8f1d4ca]
+module.vpc.aws_route_table_association.private["us-east-1a"]: Refreshing state... [id=rtbassoc-067057f898444beec]
+module.vpc.aws_route_table_association.private["us-east-1b"]: Refreshing state... [id=rtbassoc-045ffc3877283043c]
+module.vpc.aws_route.private_default["us-east-1b"]: Refreshing state... [id=r-rtb-07b8dfa819e60bcd11080289494]
+module.vpc.aws_route.private_default["us-east-1c"]: Refreshing state... [id=r-rtb-0731271358199b27e1080289494]
+module.vpc.aws_route.private_default["us-east-1a"]: Refreshing state... [id=r-rtb-0d936a501de0578451080289494]
+aws_s3_bucket_public_access_block.terraform_state: Refreshing state... [id=capstone-project-novara-dev-tfstate-027355625786-us-east-1]
+aws_s3_bucket_versioning.terraform_state: Refreshing state... [id=capstone-project-novara-dev-tfstate-027355625786-us-east-1]
+aws_s3_bucket_server_side_encryption_configuration.terraform_state: Refreshing state... [id=capstone-project-novara-dev-tfstate-027355625786-us-east-1]
+aws_s3_bucket_public_access_block.kops_state: Refreshing state... [id=capstone-project-novara-dev-kops-state-027355625786-us-east-1]
+aws_s3_bucket_server_side_encryption_configuration.kops_state: Refreshing state... [id=capstone-project-novara-dev-kops-state-027355625786-us-east-1]
+aws_s3_bucket_versioning.kops_state: Refreshing state... [id=capstone-project-novara-dev-kops-state-027355625786-us-east-1]
+module.iam.data.aws_iam_policy_document.kops_operator: Reading...
+module.iam.data.aws_iam_policy_document.kops_operator: Read complete after 0s [id=2488206560]
+module.iam.aws_iam_policy.kops_operator: Refreshing state... [id=arn:aws:iam::027355625786:policy/capstone-project-novara-dev-kops-operator]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.
+Releasing state lock. This may take a few moments...
