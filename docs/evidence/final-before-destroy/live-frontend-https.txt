@@ -1,0 +1,9 @@
+HTTP/2 200 
+date: Wed, 10 Jun 2026 10:54:08 GMT
+content-type: text/html
+content-length: 608
+last-modified: Fri, 05 Jun 2026 18:15:54 GMT
+etag: "6a23125a-260"
+accept-ranges: bytes
+strict-transport-security: max-age=31536000; includeSubDomains
+

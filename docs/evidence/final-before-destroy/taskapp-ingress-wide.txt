@@ -1,0 +1,2 @@
+NAME      CLASS   HOSTS                                             ADDRESS                                                                         PORTS     AGE
+taskapp   nginx   taskapp.axiomdlabs.online,api.axiomdlabs.online   a2eb9dd4fc9994bac8cfdf782d6701a0-191be8a0c064f6db.elb.us-east-1.amazonaws.com   80, 443   4d16h

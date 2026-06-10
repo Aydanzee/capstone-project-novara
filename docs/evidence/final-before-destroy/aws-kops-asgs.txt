@@ -1,0 +1,39 @@
+------------------------------------------------------------
+|                 DescribeAutoScalingGroups                |
++----------------------------------------------------------+
+|  bastions.k8s.axiomdlabs.online                          |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  control-plane-us-east-1a.masters.k8s.axiomdlabs.online  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  control-plane-us-east-1b.masters.k8s.axiomdlabs.online  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  control-plane-us-east-1c.masters.k8s.axiomdlabs.online  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  nodes-us-east-1a.k8s.axiomdlabs.online                  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  nodes-us-east-1b.k8s.axiomdlabs.online                  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
+|  nodes-us-east-1c.k8s.axiomdlabs.online                  |
+|  1                                                       |
+|  1                                                       |
+|  1                                                       |
+|  InService                                               |
++----------------------------------------------------------+
